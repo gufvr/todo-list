@@ -1,7 +1,7 @@
 import { Header } from "./components/Header";
 import { Tasks } from "./components/Tasks";
 
-import { useState } from 'react';
+import { useState } from "react";
 
 export interface ITask {
   id: string;
@@ -12,20 +12,39 @@ export interface ITask {
 function App() {
   const [tasks, setTasks] = useState<ITask[]>([
     {
-      id: 'teste',
-      title: 'teste',
+      id: "teste",
+      title: "teste",
       isCompleted: true,
-    }
+    },
+    {
+      id: "aushuahs",
+      title: "teste 2",
+      isCompleted: false,
+    },
   ]);
+
+  function addTask(TaskTitle: string) {
+    setTasks([
+      ...tasks,
+      {
+        id: crypto.randomUUID(),
+        title: TaskTitle,
+        isCompleted: false,
+      },
+    ]);
+  }
+
+  function deleteTaskById(taskId: string) {
+    const newTasks = tasks.filter((task) => task.id === taskId);
+    setTasks(newTasks);
+  }
 
   return (
     <>
-    <Header />
-    <Tasks 
-      tasks={tasks}
-    />
+      <Header onAddTask={addTask} />
+      <Tasks tasks={tasks} onDelete={deleteTaskById} />
     </>
-  )
+  );
 }
 
 export default App;
