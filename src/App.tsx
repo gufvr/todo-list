@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Header } from "./components/Header";
 import { Tasks } from "./components/Tasks";
 
-const LOCAL_STORAGE_KEY = "todo:savedTasks";
+const LOCAL_STORAGE_KEY = "todo:alreadySavedTasks";
 
 export interface ITask {
   id: string;
