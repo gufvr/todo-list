@@ -9,7 +9,7 @@ interface Props {
   onDelete: (taskId: string) => void;
 }
 
-export function Tasks({ tasks, onComplete, onDelete }: Props) {
+export function Tasks({ tasks, onDelete, onComplete }: Props) {
   const tasksQuantity = tasks.length;
   const completedTasks = tasks.filter((task) => task.isCompleted).length;
 
@@ -34,8 +34,8 @@ export function Tasks({ tasks, onComplete, onDelete }: Props) {
           <Task
             key={task.id}
             task={task}
-            onComplete={onComplete}
             onDelete={onDelete}
+            onComplete={onComplete}
           />
         ))}
 

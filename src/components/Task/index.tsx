@@ -1,16 +1,16 @@
 import { TbTrash } from "react-icons/tb";
 import { BsFillCheckCircleFill } from "react-icons/bs";
+import { ITask } from "../../App";
 
 import styles from "./task.module.css";
-import { ITask } from "../../App";
 
 interface Props {
   task: ITask;
-  onComplete: (taskId: string) => void;
   onDelete: (taskId: string) => void;
+  onComplete: (taskId: string) => void;
 }
 
-export function Task({ task, onComplete, onDelete }: Props) {
+export function Task({ task, onDelete, onComplete }: Props) {
   return (
     <div className={styles.task}>
       <button
